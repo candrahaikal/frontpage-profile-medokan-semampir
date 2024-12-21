@@ -26,5 +26,7 @@ Route::get('/facility', [FacilityController::class, 'index'])->name('facility.in
 Route::get('/facility/detail', [FacilityController::class, 'show'])->name('facility.show');
 
 Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.index');
+Route::get('/umkm/detail', [UmkmController::class, 'show'])->name('umkm.show');
 
 Route::get('/event', [EventController::class, 'index'])->name('event.index');
+Route::get('/event/detail', [EventController::class, 'show'])->name('event.show');

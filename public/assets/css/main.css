@@ -655,7 +655,7 @@ hr {
 }
 
 .page-title h1 {
-  font-size: 42px;
+  font-size: 38px;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -689,7 +689,8 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 140px 0;
+  padding-top: 140px;
+  padding-bottom: 70px;
   scroll-margin-top: 90px;
   overflow: clip;
 }
@@ -1178,27 +1179,28 @@ section,
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
-.features .nav-tabs {
+
+.struktural .nav-tabs {
   border: 0;
   background-color: color-mix(in srgb, var(--default-color), transparent 96%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  padding: 6px;
+  padding: 0px
   width: auto;
 }
 
-.features .nav-item {
+.struktural .nav-item {
   margin: 0;
   padding: 0 5px 0 0;
 }
 
-.features .nav-item:last-child {
+.struktural .nav-item:last-child {
   padding-right: 0;
 }
 
-.features .nav-link {
+.struktural .nav-link {
   background-color: none;
   color: var(--heading-color);
   padding: 10px 30px;
@@ -1214,44 +1216,44 @@ section,
 }
 
 @media (max-width: 468px) {
-  .features .nav-link {
+  .struktural .nav-link {
     padding: 8px 20px;
   }
 }
 
-.features .nav-link i {
+.struktural .nav-link i {
   padding-right: 15px;
   font-size: 48px;
 }
 
-.features .nav-link h4 {
+.struktural .nav-link h4 {
   font-size: 14px;
   font-weight: 500;
   margin: 0;
 }
 
-.features .nav-link:hover {
+.struktural .nav-link:hover {
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.features .nav-link:hover h4 {
+.struktural .nav-link:hover h4 {
   color: var(--accent-color);
 }
 
-.features .nav-link.active {
+.struktural .nav-link.active {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-.features .nav-link.active h4 {
+.struktural .nav-link.active h4 {
   color: var(--contrast-color);
 }
 
-.features .tab-content {
+.struktural .tab-content {
   margin-top: 30px;
 }
 
-.features .tab-pane h3 {
+.struktural .tab-pane h3 {
   color: var(--heading-color);
   font-weight: 700;
   font-size: 32px;
@@ -1260,7 +1262,7 @@ section,
   padding-bottom: 20px;
 }
 
-.features .tab-pane h3:after {
+.struktural .tab-pane h3:after {
   content: "";
   position: absolute;
   display: block;
@@ -1271,22 +1273,22 @@ section,
   bottom: 0;
 }
 
-.features .tab-pane ul {
+.struktural .tab-pane ul {
   list-style: none;
   padding: 0;
 }
 
-.features .tab-pane ul li {
+.struktural .tab-pane ul li {
   padding-top: 10px;
 }
 
-.features .tab-pane ul i {
+.struktural .tab-pane ul i {
   font-size: 20px;
   padding-right: 4px;
   color: var(--accent-color);
 }
 
-.features .tab-pane p:last-child {
+.struktural .tab-pane p:last-child {
   margin-bottom: 0;
 }
 
@@ -1727,7 +1729,7 @@ section,
 }
 
 .explore .explore-content h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;

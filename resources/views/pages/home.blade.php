@@ -206,13 +206,6 @@
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalRw }}"
-                                data-purecounter-duration="3" class="purecounter"></span>
-                            <p>Jumlah RW</p>
-                        </div>
-                    </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
@@ -222,19 +215,36 @@
                         </div>
                     </div><!-- End Stats Item -->
 
-                    <div class="col-lg-3 col-md-6">
+
+                    {{-- <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $totalKk }}"
                                 data-purecounter-duration="3" class="purecounter"></span>
                             <p>Jumlah Kepala Keluarga</p>
                         </div>
-                    </div><!-- End Stats Item -->
+                    </div><!-- End Stats Item --> --}}
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $totalPopulation }}"
                                 data-purecounter-duration="3" class="purecounter"></span>
                             <p>Jumlah Penduduk</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalRw }}"
+                                data-purecounter-duration="3" class="purecounter"></span>
+                            <p>Jumlah Fasilitas Umum</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalRw }}"
+                                data-purecounter-duration="3" class="purecounter"></span>
+                            <p>Jumlah UMKM</p>
                         </div>
                     </div><!-- End Stats Item -->
 
@@ -251,7 +261,7 @@
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
                 <div class="row align-items-center">
-                    <div class="col-lg-5 ">
+                    <div class="col-lg-6 ">
                         <div class="explore-content" data-aos="fade-up" data-aos-delay="200">
                             {{-- <div class="company-badge mb-4">
                                 <i class="bi bi-gear-fill me-2"></i>
@@ -259,12 +269,12 @@
                             </div> --}}
 
                             <h1 class="mb-4">
-                                Jelajahi Kelurahan<br>
+                                Jelajahi <span class="accent-text">RW 7</span> Kelurahan
                                 <span class="accent-text">Medokan Semampir</span>
                             </h1>
 
                             <p class="mb-4 mb-md-5">
-                                Melalui website ini Anda dapat menjelajahi segala hal yang terkait dengan Kelurahan Medokan
+                                Melalui website ini Anda dapat menjelajahi segala hal yang terkait dengan RW 7 Kelurahan Medokan
                                 Semampir, seperti Struktural RT/RW, Fasilitas, UMKM, Kegiatan, dll.
                             </p>
 
@@ -280,23 +290,8 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-7">
-                        {{-- <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-                            <img src="assets/images/illustration-1.webp" alt="Hero Image" class="img-fluid">
-
-                            <div class="customers-badge">
-                                <div class="customer-avatars">
-                                    <img src="assets/images/avatar-1.webp" alt="Customer 1" class="avatar">
-                                    <img src="assets/images/avatar-2.webp" alt="Customer 2" class="avatar">
-                                    <img src="assets/images/avatar-3.webp" alt="Customer 3" class="avatar">
-                                    <img src="assets/images/avatar-4.webp" alt="Customer 4" class="avatar">
-                                    <img src="assets/images/avatar-5.webp" alt="Customer 5" class="avatar">
-                                    <span class="avatar more">12+</span>
-                                </div>
-                                <p class="mb-0 mt-2">12,000+ lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                            </div>
-                        </div> --}}
-
+                    <div class="col-lg-6">
+                        
                         <div class="container explores light-background" data-aos="fade-up" data-aos-delay="100">
 
                             <div class="row g-4">
@@ -421,8 +416,8 @@
                 <div class="row gy-4 align-items-center justify-content-between">
 
                     <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
-                        <span class="about-meta">PROFIL KELURAHAN</span>
-                        <h2 class="about-title">Tentang Kelurahan Medokan Semampir</h2>
+                        <span class="about-meta">PROFIL RW</span>
+                        <h2 class="about-title">Tentang RW 7 Kelurahan Medokan Semampir</h2>
                         <p class="about-description"></p>
 
                         <div class="row feature-list-wrapper">
@@ -486,149 +481,7 @@
 
         </section><!-- /About Section -->
 
-        <!-- Features Section -->
-        <section id="features" class="features section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Features</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="d-flex justify-content-center">
-
-                    <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
-                        <li class="nav-item">
-                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                                <h4>Modisit</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                                <h4>Praesenti</h4>
-                            </a><!-- End tab nav item -->
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                                <h4>Explica</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                                <h4>Explica</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                                <h4>Explica</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                                <h4>Explica</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                                <h4>Explica</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-
-                    </ul>
-
-                </div>
-
-                <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-                    <div class="tab-pane fade active show" id="features-tab-1">
-                        <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                                <h3>Voluptatem dignissimos provident</h3>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                                            voluptate velit.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                            storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="assets/images/features-illustration-1.webp" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                    </div><!-- End tab content item -->
-
-                    <div class="tab-pane fade" id="features-tab-2">
-                        <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                                <h3>Neque exercitationem debitis</h3>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                                            voluptate velit.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores
-                                            dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                            storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="assets/images/features-illustration-2.webp" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                    </div><!-- End tab content item -->
-
-                    <div class="tab-pane fade" id="features-tab-3">
-                        <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                                <h3>Voluptatibus commodi accusamu</h3>
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                                            voluptate velit.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores
-                                            dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
-                                </ul>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="assets/images/features-illustration-3.webp" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                    </div><!-- End tab content item -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Features Section -->
+        
 
         <!-- Features Cards Section -->
         <section id="features-cards" class="features-cards section">
@@ -676,7 +529,7 @@
         </section><!-- /Features Cards Section -->
 
         <!-- Features 2 Section -->
-        <section id="features-2" class="features-2 section">
+        {{-- <section id="features-2" class="features-2 section">
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -777,9 +630,9 @@
 
             </div>
 
-        </section><!-- /Features 2 Section -->
+        </section><!-- /Features 2 Section --> --}}
 
-        <!-- Call To Action Section -->
+        {{-- <!-- Call To Action Section -->
         <section id="call-to-action" class="call-to-action section">
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -841,10 +694,10 @@
 
             </div>
 
-        </section><!-- /Call To Action Section -->
+        </section><!-- /Call To Action Section --> --}}
 
         <!-- Clients Section -->
-        <section id="clients" class="clients section">
+        {{-- <section id="clients" class="clients section">
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -873,7 +726,7 @@
 
             </div>
 
-        </section><!-- /Clients Section -->
+        </section><!-- /Clients Section --> --}}
 
 
 
@@ -923,7 +776,7 @@
         </section><!-- /Stats Section --> --}}
 
         <!-- Services Section -->
-        <section id="services" class="services section light-background">
+        {{-- <section id="services" class="services section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -999,7 +852,7 @@
 
             </div>
 
-        </section><!-- /Services Section -->
+        </section><!-- /Services Section --> --}}
 
         {{-- <!-- Pricing Section -->
         <section id="pricing" class="pricing section light-background">
@@ -1231,7 +1084,7 @@
         </section><!-- /Faq Section -->
 
         <!-- Call To Action 2 Section -->
-        <section id="call-to-action-2" class="call-to-action-2 section dark-background">
+        {{-- <section id="call-to-action-2" class="call-to-action-2 section dark-background">
 
             <div class="container">
                 <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
@@ -1247,7 +1100,7 @@
                 </div>
             </div>
 
-        </section><!-- /Call To Action 2 Section -->
+        </section><!-- /Call To Action 2 Section --> --}}
 
         {{-- <!-- Contact Section -->
         <section id="contact" class="contact section light-background">
