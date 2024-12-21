@@ -19,7 +19,7 @@
                         <div class="card shadow-sm">
                             <div class="card-body">
                                 <div class="position-relative mb-3 ratio ratio-4x3"><img
-                                        src="{{ asset('assets/images/features-illustration-1.webp') }}" alt=""
+                                        src="{{ env('APP_CMS_URL').$facilityRw->image }}" alt=""
                                         class="img-thumbnail"></div>
                                 <div class="card-text px-2 pb-4">
                                     <h4><a class="text-dark fw-bold" href="/blog-details">{{ $facilityRw->name }}</a></h4>
@@ -51,7 +51,7 @@
                         <div class="card shadow-sm">
                             <div class="card-body">
                                 <div class="position-relative mb-3 ratio ratio-4x3"><img
-                                        src="{{ asset('assets/images/features-illustration-1.webp') }}" alt=""
+                                        src="{{env('APP_CMS_URL').$facilityRt->image) }}" alt=""
                                         class="img-thumbnail"></div>
                                 <div class="card-text px-2 pb-4">
                                     <h4><a class="text-dark fw-bold" href="/blog-details">{{ $facilityRt->name }}</a></h4>
