@@ -234,7 +234,7 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalRw }}"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalFacility }}"
                                 data-purecounter-duration="3" class="purecounter"></span>
                             <p>Jumlah Fasilitas Umum</p>
                         </div>
@@ -242,7 +242,7 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalRw }}"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $totalUmkm }}"
                                 data-purecounter-duration="3" class="purecounter"></span>
                             <p>Jumlah UMKM</p>
                         </div>
