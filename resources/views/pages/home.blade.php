@@ -6,204 +6,88 @@
 
     <main class="main">
 
-        <!-- Hero Section -->
-        <section id="hero" class="hero section">
-
-            {{-- <div class="container" data-aos="fade-up" data-aos-delay="100"> --}}
-
-            <div id="carouselHeroLarge" class="carousel slide d-none d-lg-block">
-                <div class="carousel-indicators">
-                    @foreach ($events as $event)
-                    <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="{{$loop->index}}" class="{{ $loop->first ? 'active' : '' }}"
-                    aria-current="{{ $loop->first ? 'true' : 'false'}}" aria-label="event-{{$event->id}}"></button> 
-                    @endforeach
-                    
-                    {{-- <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button> --}}
-                </div>
-                <div class="carousel-inner">
-                    @foreach ($events as $event)
-                    <div class="carousel-item active">
-                        <img src="{{ env('APP_CMS_URL') . $event->image }}" class="d-block w-100" alt="{{ $event->name }}">
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+    <div id="carouselHeroLarge" class="carousel slide d-none d-lg-block">
+        <div class="carousel-indicators">
+            @foreach ($events as $event)
+                @if ($event->image)
+                    <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="{{ $loop->index }}"
+                        class="{{ $loop->first ? 'active' : '' }}"
+                        aria-current="{{ $loop->first ? 'true' : 'false' }}" 
+                        aria-label="event-{{ $event->id }}"></button>
+                @endif
+            @endforeach
+        </div>
+        <div class="carousel-inner">
+            @foreach ($events as $event)
+                @if ($event->image)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <div style="max-height: 100vh; overflow: hidden;">
+                            <img src="{{ env('APP_CMS_URL') . $event->image }}" 
+                                class="d-block w-100" 
+                                style="object-fit: cover; object-position: center; max-height: 100vh;" 
+                                alt="{{ $event->name }}">
+                        </div>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{ $event->name }}</h5>
                             <p>{!! Str::limit($event->description, 100) !!}</p>
                         </div>
                     </div>
-                    @endforeach
-                    
-                    {{-- <div class="carousel-item">
-                        <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div> --}}
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroLarge"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselHeroLarge"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                @endif
+            @endforeach
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroLarge" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHeroLarge" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
-            <div id="carouselHeroSmall" class="carousel slide d-block d-lg-none px-3" style="padding-top: 80px">
-                <div class="carousel-indicators">
-                    @foreach ($events as $event)
-                    <button type="button" data-bs-target="#carouselHeroSmall" data-bs-slide-to="{{$loop->index}}" class="{{ $loop->first ? 'active' : '' }}"
-                    aria-current="{{ $loop->first ? 'true' : 'false'}}" aria-label="event-{{$event->id}}"></button> 
-                    @endforeach
-                </div>
-                <div class="carousel-inner rounded rounded-lg overflow-hidden">
-                    @foreach ($events as $event)
-                    <div class="carousel-item active">
-                        <img src="{{ env('APP_CMS_URL') . $event->image }}" class="d-block w-100" alt="{{ $event->name }}">
-                        <div class="carousel-caption d-md-block">
+    <div id="carouselHeroSmall" class="carousel slide d-block d-lg-none px-3" style="padding-top: 80px">
+        <div class="carousel-indicators">
+            @foreach ($events as $event)
+                @if ($event->image)
+                    <button type="button" data-bs-target="#carouselHeroSmall" data-bs-slide-to="{{ $loop->index }}"
+                        class="{{ $loop->first ? 'active' : '' }}"
+                        aria-current="{{ $loop->first ? 'true' : 'false' }}" 
+                        aria-label="event-{{ $event->id }}"></button>
+                @endif
+            @endforeach
+        </div>
+        <div class="carousel-inner rounded rounded-lg overflow-hidden">
+            @foreach ($events as $event)
+                @if ($event->image)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <div style="max-height: 100vh; overflow: hidden;">
+                            <img src="{{ env('APP_CMS_URL') . $event->image }}" 
+                                class="d-block w-100" 
+                                style="object-fit: cover; object-position: center; max-height: 100vh;" 
+                                alt="{{ $event->name }}">
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
                             <h5>{{ $event->name }}</h5>
                             <p>{!! Str::limit($event->description, 100) !!}</p>
                         </div>
                     </div>
-                    @endforeach
-                    {{-- <div class="carousel-item">
-                        <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div> --}}
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroSmall"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselHeroSmall"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                @endif
+            @endforeach
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroSmall" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHeroSmall" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
 
-            {{-- <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-                            <div class="company-badge mb-4">
-                                <i class="bi bi-gear-fill me-2"></i>
-                                Working for your success
-                            </div>
 
-                            <h1 class="mb-4">
-                                Maecenas Vitae <br>
-                                Consectetur Led <br>
-                                <span class="accent-text">Vestibulum Ante</span>
-                            </h1>
-
-                            <p class="mb-4 mb-md-5">
-                                Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
-                                Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
-                            </p>
-
-                            <div class="hero-buttons">
-                                <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Get Started</a>
-                                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
-                                    class="btn btn-link mt-2 mt-sm-0 glightbox">
-                                    <i class="bi bi-play-circle me-1"></i>
-                                    Video
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-                            <img src="assets/images/illustration-1.webp" alt="Hero Image" class="img-fluid">
-
-                            <div class="customers-badge">
-                                <div class="customer-avatars">
-                                    <img src="assets/images/avatar-1.webp" alt="Customer 1" class="avatar">
-                                    <img src="assets/images/avatar-2.webp" alt="Customer 2" class="avatar">
-                                    <img src="assets/images/avatar-3.webp" alt="Customer 3" class="avatar">
-                                    <img src="assets/images/avatar-4.webp" alt="Customer 4" class="avatar">
-                                    <img src="assets/images/avatar-5.webp" alt="Customer 5" class="avatar">
-                                    <span class="avatar more">12+</span>
-                                </div>
-                                <p class="mb-0 mt-2">12,000+ lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-            {{-- <div class="row stats-row gy-4 mt-5" data-aos="fade-up" data-aos-delay="500">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-trophy"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4>3x Won Awards</h4>
-                                <p class="mb-0">Vestibulum ante ipsum</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-briefcase"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4>6.5k Faucibus</h4>
-                                <p class="mb-0">Nullam quis ante</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-graph-up"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4>80k Mauris</h4>
-                                <p class="mb-0">Etiam sit amet orci</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-award"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4>6x Phasellus</h4>
-                                <p class="mb-0">Vestibulum ante ipsum</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-            {{-- </div> --}}
-
-        </section><!-- /Hero Section -->
 
         <!-- Stats Section -->
         <section id="stats" class="stats section">
