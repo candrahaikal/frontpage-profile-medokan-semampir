@@ -6,6 +6,7 @@ use App\Models\MRt;
 use App\Models\MRw;
 use App\Models\FacilityRt;
 use App\Models\FacilityRw;
+use App\Models\Event;
 use App\Models\Umkm;
 use Illuminate\Http\Request;
 
@@ -40,13 +41,24 @@ class HomeController extends Controller
             $query->where('name', 'RW 7');
         })->sum('population');
 
+        $rw7 = MRw::where('name', 'RW 7')->first();
+
+        $events = Event::whereHas('rt', function ($query) {
+            $query->whereHas('rw', function ($query) {
+                $query->where('name', 'RW 7');
+            });
+        })->get();
+
+
 
         return view('pages.home', [
             'totalRt' => $totalRt,
             // 'totalKk' => $totalKk,
             'totalPopulation' => $totalPopulation,
             'totalFacility' => $totalFacility,
-            'totalUmkm' => $totalUmkm
+            'totalUmkm' => $totalUmkm,
+            'descriptionRw' => $rw7->description,
+            'events' => $events
         ]);
     }
 }

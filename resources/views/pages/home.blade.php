@@ -13,22 +13,28 @@
 
             <div id="carouselHeroLarge" class="carousel slide d-none d-lg-block">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="1"
+                    @foreach ($events as $event)
+                    <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="{{$loop->index}}" class="{{ $loop->first ? 'active' : '' }}"
+                    aria-current="{{ $loop->first ? 'true' : 'false'}}" aria-label="event-{{$event->id}}"></button> 
+                    @endforeach
+                    
+                    {{-- <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselHeroLarge" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                        aria-label="Slide 3"></button> --}}
                 </div>
                 <div class="carousel-inner">
+                    @foreach ($events as $event)
                     <div class="carousel-item active">
-                        <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
+                        <img src="{{ env('APP_CMS_URL') . $event->image }}" class="d-block w-100" alt="{{ $event->name }}">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <h5>{{ $event->name }}</h5>
+                            <p>{!! Str::limit($event->description, 100) !!}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    @endforeach
+                    
+                    {{-- <div class="carousel-item">
                         <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Second slide label</h5>
@@ -41,7 +47,7 @@
                             <h5>Third slide label</h5>
                             <p>Some representative placeholder content for the third slide.</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroLarge"
                     data-bs-slide="prev">
@@ -57,22 +63,22 @@
 
             <div id="carouselHeroSmall" class="carousel slide d-block d-lg-none px-3" style="padding-top: 80px">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselHeroSmall" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselHeroSmall" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselHeroSmall" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                    @foreach ($events as $event)
+                    <button type="button" data-bs-target="#carouselHeroSmall" data-bs-slide-to="{{$loop->index}}" class="{{ $loop->first ? 'active' : '' }}"
+                    aria-current="{{ $loop->first ? 'true' : 'false'}}" aria-label="event-{{$event->id}}"></button> 
+                    @endforeach
                 </div>
                 <div class="carousel-inner rounded rounded-lg overflow-hidden">
+                    @foreach ($events as $event)
                     <div class="carousel-item active">
-                        <img src="{{ asset('assets/images/about-4.webp') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                        <img src="{{ env('APP_CMS_URL') . $event->image }}" class="d-block w-100" alt="{{ $event->name }}">
+                        <div class="carousel-caption d-md-block">
+                            <h5>{{ $event->name }}</h5>
+                            <p>{!! Str::limit($event->description, 100) !!}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    @endforeach
+                    {{-- <div class="carousel-item">
                         <img src="{{ asset('assets/images/about-5.webp') }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Second slide label</h5>
@@ -85,7 +91,7 @@
                             <h5>Third slide label</h5>
                             <p>Some representative placeholder content for the third slide.</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroSmall"
                     data-bs-slide="prev">
@@ -421,7 +427,10 @@
                         <p class="about-description"></p>
 
                         <div class="row feature-list-wrapper">
-                            <div class="col-md-6">
+                            <p class="text-accent">
+                                {!! $descriptionRw !!}
+                            </p>
+                            {{-- <div class="col-md-6">
                                 <ul class="feature-list">
                                     <li><i class="bi bi-check-circle-fill"></i> Lorem ipsum dolor sit amet</li>
                                     <li><i class="bi bi-check-circle-fill"></i> Consectetur adipiscing elit</li>
@@ -434,7 +443,7 @@
                                     <li><i class="bi bi-check-circle-fill"></i> Dolore magna aliqua</li>
                                     <li><i class="bi bi-check-circle-fill"></i> Ut enim ad minim veniam</li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
 
                         {{-- <div class="info-wrapper">
@@ -466,13 +475,13 @@
                             <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
                                 <img src="assets/images/about-5.webp" alt="Business Meeting"
                                     class="img-fluid main-image rounded-4">
-                                <img src="assets/images/about-2.webp" alt="Team Discussion"
-                                    class="img-fluid small-image rounded-4">
+                                {{-- <img src="assets/images/about-2.webp" alt="Team Discussion"
+                                    class="img-fluid small-image rounded-4"> --}}
                             </div>
-                            <div class="experience-badge floating">
+                            {{-- <div class="experience-badge floating">
                                 <h3>15+ <span>Years</span></h3>
                                 <p>Of experience in business service</p>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -481,10 +490,12 @@
 
         </section><!-- /About Section -->
 
+        <hr>
+
         
 
         <!-- Features Cards Section -->
-        <section id="features-cards" class="features-cards section">
+        {{-- <section id="features-cards" class="features-cards section">
 
             <div class="container">
 
@@ -526,7 +537,7 @@
 
             </div>
 
-        </section><!-- /Features Cards Section -->
+        </section><!-- /Features Cards Section --> --}}
 
         <!-- Features 2 Section -->
         {{-- <section id="features-2" class="features-2 section">
@@ -991,7 +1002,7 @@
 
         </section><!-- /Pricing Section --> --}}
 
-        <!-- Faq Section -->
+        {{-- <!-- Faq Section -->
         <section class="faq-9 faq section light-background" id="faq">
 
             <div class="container">
@@ -1081,7 +1092,7 @@
 
                 </div>
             </div>
-        </section><!-- /Faq Section -->
+        </section><!-- /Faq Section --> --}}
 
         <!-- Call To Action 2 Section -->
         {{-- <section id="call-to-action-2" class="call-to-action-2 section dark-background">
