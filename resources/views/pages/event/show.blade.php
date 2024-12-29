@@ -6,7 +6,7 @@
     <section id="detail-event" class="detail-event section light-background" data-aos="fade-up">
 
         <div class="container">
-            <div class="">
+            <div class="row mb-5 gap-4 justify-">
                 <div class="text-center">
                     <div class="mb-4">
                         <a class="badge bg-info font-size-12" href="{{ route('event.index') }}">
@@ -56,7 +56,7 @@
                 <div class="mt-4">
                     <div class="text-muted font-size-14">
                         
-                        {!! $event->description !!}
+                        {!! String::limit($event->description, 50) !!}
                     </div>
 
                 </div>

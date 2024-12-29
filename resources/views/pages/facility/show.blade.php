@@ -15,13 +15,11 @@
                                 Fasilitas Umum
                             </a>
                             @if ($type == 'rw')
-                            <p class="badge bg-warning">{{ $facility->rw->name }}</p>
-                                
-                            
+                                <p class="badge bg-warning">{{ $facility->rw->name }}</p>
                             @else
-                            <p class="badge bg-warning">{{ $facility->rt->rw->name }}</p>
-                                
-                            <p class="badge bg-primary">{{ $facility->rt->name }}</p>
+                                <p class="badge bg-warning">{{ $facility->rt->rw->name }}</p>
+
+                                <p class="badge bg-primary">{{ $facility->rt->name }}</p>
                             @endif
                         </div>
                         <h1 class="fw-bold">{{ $facility->name }}</h1>
@@ -29,18 +27,19 @@
                     <!-- Section Title -->
                     <hr>
                     <div>
-                        <div class="row">
+                        <div class="row justify-content-center ">
                             <div class="col-lg-6 text-center">
+
+                                <iframe src="{{ $facility->link_maps }}" height="200" style="border:0;"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+
+                            {{-- <div class="col-lg-6 text-center">
     
                                 <i class="bx bx-purchase-tag-alt align-middle text-muted me-1"></i>
                                 <p class="fs-5">{{ $facility->link_maps }}</p>
-                            </div>
-    
-                            <div class="col-lg-6 text-center">
-    
-                                <i class="bx bx-purchase-tag-alt align-middle text-muted me-1"></i>
-                                <p class="fs-5">{{ $facility->link_maps }}</p>
-                            </div>
+                            </div> --}}
                             {{-- <div class="col-sm-4">
                                 <div class="mt-4 mt-sm-0">
                                     <p class="text-muted mb-2">Lokasi</p>
@@ -61,10 +60,10 @@
                     <hr>
                     <div class="mt-4">
                         <div class="text-muted font-size-14">
-                            
+
                             {!! $facility->description !!}
                         </div>
-    
+
                     </div>
                 </div>
             </div>
