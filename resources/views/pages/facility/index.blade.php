@@ -51,7 +51,7 @@
                     </div>
                     {{-- End Card Facility --}}
                 @endforeach
-                {{ $facilityRws->links() }}
+                {{-- {{ $facilityRws->links() }} --}}
             </div>
 
         </div>

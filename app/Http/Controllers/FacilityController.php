@@ -18,7 +18,7 @@ class FacilityController extends Controller
         // Ambil data fasilitas RW dan RT dengan kondisi RW 7, dan tambahkan pagination
         $facilityRw = FacilityRw::whereHas('rw', function ($query) {
             $query->where('name', 'RW 7');
-        })->paginate($perPage, ['*'], 'facilityRwPage');
+        })->get();
     
         $facilityRt = FacilityRt::whereHas('rt', function ($query) {
             $query->whereHas('rw', function ($query) {

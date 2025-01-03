@@ -40,7 +40,7 @@
                             <div class="col-sm-4">
                                 <div class="mt-4 mt-sm-0">
                                     <p class="text-muted mb-2">Lokasi</p>
-                                    <h5 class="font-size-15">Gang 5 Medokan Semampir</h5>
+                                    <h5 class="font-size-15">{{ $event->location }}</h5>
                                 </div>
                             </div>
                             {{-- <div class="col-sm-4">

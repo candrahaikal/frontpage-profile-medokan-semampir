@@ -30,9 +30,13 @@
                         <div class="row justify-content-center ">
                             <div class="col-lg-6 text-center">
 
+                                @if ($facility->link_maps)
                                 <iframe src="{{ $facility->link_maps }}" height="200" style="border:0;"
                                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
+                                @else
+                                <p class="text-muted">Link Tidak Tersedia</p>
+                                @endif
                             </div>
 
                             {{-- <div class="col-lg-6 text-center">

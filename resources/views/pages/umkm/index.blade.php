@@ -20,7 +20,8 @@
                     <div class="col-lg-4">
                         <div class="card shadow-sm mb-3">
                             <div class="card-body">
-                                <div class="position-relative mb-3 ratio ratio-4x3"><img
+                                <div class="position-relative mb-3 ratio ratio-4x3">
+                                    <img
                                         src="{{ $umkm->image ? env('APP_CMS_URL') . $umkm->image : 'https://placehold.co/400x300?text=Tidak+ada+gambar&font=roboto' }}" alt=""
                                         class="img-thumbnail"></div>
                                 <div class="card-text px-2 pb-4">
