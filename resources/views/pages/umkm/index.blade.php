@@ -44,7 +44,7 @@
                                         </a>
                                         </li>
                                     </ul>
-                                    <p class="text-secondary">{!! $umkm->description !!}</p>
+                                    <p class="text-secondary">{!! Str::limit($umkm->description, 40) !!}</p>
                                     <a href="{{ route('umkm.show', ['id' => $umkm->id]) }}"
                                         class="read-more">Selengkapnya <i class="bi bi-arrow-right"></i></a>
                                 </div>

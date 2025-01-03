@@ -44,7 +44,7 @@
                                         </a> --}}
                                         </li>
                                     </ul>
-                                    <p class="text-secondary">{!! Str::limit($event->description, 30) !!}</p>
+                                    <p class="text-secondary">{!! Str::limit($event->description, 40) !!}</p>
                                     <a href="{{ route('event.show', ['id' => $event->id]) }}"
                                         class="read-more">Selengkapnya <i class="bi bi-arrow-right"></i></a>
                                 </div>

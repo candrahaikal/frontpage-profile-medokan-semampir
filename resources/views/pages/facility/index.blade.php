@@ -42,7 +42,7 @@
                                             </p> --}}
                                         </li>
                                     </ul>
-                                    <p class="text-secondary">{!! $facilityRw->description !!}</p>
+                                    <p class="text-secondary">{!! Str::limit($facilityRw->description, 40) !!}</p>
                                     <a href="{{ route('facility.show', ['type' => 'rw', 'id' => $facilityRw->id]) }}"
                                         class="read-more">Selengkapnya <i class="bi bi-arrow-right"></i></a>
                                 </div>
@@ -91,7 +91,7 @@
                                             </p>
                                         </li>
                                     </ul>
-                                    <p class="text-secondary">{!! $facilityRt->description !!}</p>
+                                    <p class="text-secondary">{!! Str::limit($facilityRt->description, 40) !!}</p>
                                     <a href="{{ route('facility.show', ['type' => 'rt', 'id' => $facilityRt->id]) }}"
                                         class="read-more">Selengkapnya <i class="bi bi-arrow-right"></i></a>
                                 </div>
