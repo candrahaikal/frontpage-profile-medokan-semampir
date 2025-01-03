@@ -35,8 +35,11 @@ class UmkmController extends Controller
 
         // Pastikan data ditemukan sebelum memodifikasi
         if ($umkm) {
-            $redirectedUrl = $this->getRedirectedUrl($umkm->link_maps);
+            if($umkm->link_maps != null){
+                $redirectedUrl = $this->getRedirectedUrl($umkm->link_maps);
             $umkm->link_maps = $this->convertToEmbedUrl($redirectedUrl);
+            }
+            
         }
 
         return view('pages.umkm.show', [

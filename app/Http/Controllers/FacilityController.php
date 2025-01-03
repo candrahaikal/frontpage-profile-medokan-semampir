@@ -45,8 +45,11 @@ class FacilityController extends Controller
 
             // Pastikan data ditemukan sebelum memodifikasi
             if ($facility) {
-                $redirectedUrl = $this->getRedirectedUrl($facility->link_maps);
+                if($facility->link_maps != null){
+                    $redirectedUrl = $this->getRedirectedUrl($facility->link_maps);
                 $facility->link_maps = $this->convertToEmbedUrl($redirectedUrl);
+                }
+                
             }
         } else {
             // Ambil data FacilityRt berdasarkan ID
@@ -54,8 +57,11 @@ class FacilityController extends Controller
 
             // Pastikan data ditemukan sebelum memodifikasi
             if ($facility) {
-                $redirectedUrl = $this->getRedirectedUrl($facility->link_maps);
-                $facility->link_maps = $this->convertToEmbedUrl($redirectedUrl);
+                if($facility->link_maps != null){
+                    $redirectedUrl = $this->getRedirectedUrl($facility->link_maps);
+                    $facility->link_maps = $this->convertToEmbedUrl($redirectedUrl); 
+                }
+                
             }
         }
 
