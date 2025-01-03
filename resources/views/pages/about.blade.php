@@ -15,8 +15,8 @@
                 @foreach ($staffRws as $staffRw)
                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="card shadow shadow-sm">
-                            <img src="{{ asset('assets/images/testimonials/testimonials-1.jpg') }}" class="card-img-top"
-                                alt="...">
+                            <img src="{{ $staffRw->image ? env('APP_CMS_URL') . $staffRw->image : 'https://placehold.co/500?text=Tidak+ada+gambar&font=roboto' }}" class="card-img-top"
+                                alt="{{ $staffRw->name }}">
                             <div class="card-body">
                                 <h5 class="card-title text-center fw-bold">{{ $staffRw->staffCategory->name }}</h5>
                                 <p class="text-center text-secondary">{{ $staffRw->name }}</p>
@@ -65,8 +65,8 @@
                                 @foreach ($staffsForRt as $staffRt)
                                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
                                         <div class="card shadow shadow-sm">
-                                            <img src="{{ asset('assets/images/testimonials/testimonials-1.jpg') }}"
-                                                class="card-img-top" alt="...">
+                                            <img src="{{ $staffRt->image ? env('APP_CMS_URL') . $staffRt->image : 'https://placehold.co/500?text=Tidak+ada+gambar&font=roboto' }}"
+                                                class="card-img-top" alt="{{ $staffRt->name }}">
                                             <div class="card-body">
                                                 <h5 class="card-title text-center fw-bold">
                                                     {{ $staffRt->staffCategory->name }}

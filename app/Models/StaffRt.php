@@ -14,6 +14,7 @@ class StaffRt extends Model
     protected $fillable = [
         'rt_id',
         'name',
+        'image',
         'status',
         'staff_category_id'
         

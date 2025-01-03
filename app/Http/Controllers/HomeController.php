@@ -49,6 +49,8 @@ class HomeController extends Controller
             });
         })->get();
 
+        // dd($events);
+
 
 
         return view('pages.home', [

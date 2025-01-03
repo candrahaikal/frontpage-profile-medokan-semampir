@@ -6,41 +6,33 @@ use App\Models\FacilityRt;
 use App\Models\MRw;
 use App\Models\FacilityRw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class FacilityController extends Controller
 {
     public function index()
     {
-        // Ambil data fasilitas RW dan RT dengan kondisi RW 7
+        // Tentukan jumlah data per halaman
+        $perPage = 6;
+    
+        // Ambil data fasilitas RW dan RT dengan kondisi RW 7, dan tambahkan pagination
         $facilityRw = FacilityRw::whereHas('rw', function ($query) {
             $query->where('name', 'RW 7');
-        })->get();
-
+        })->paginate($perPage, ['*'], 'facilityRwPage');
+    
         $facilityRt = FacilityRt::whereHas('rt', function ($query) {
             $query->whereHas('rw', function ($query) {
                 $query->where('name', 'RW 7');
             });
-        })->get();
-
-        // // Proses URL Google Maps agar menjadi embed URL
-        // $facilityRw->transform(function ($facility) {
-        //     $facility->link_maps = $this->convertToEmbedUrl($facility->link_maps);
-        //     return $facility;
-        // });
-
-        // dd($facilityRw);
-
-        // $facilityRt->transform(function ($facility) {
-        //     $facility->link_maps = $this->convertToEmbedUrl($facility->link_maps);
-        //     return $facility;
-        // });
-
+        })->paginate($perPage, ['*'], 'facilityRtPage');
+    
         // Kirim data ke view
         return view('pages.facility.index', [
             'facilityRws' => $facilityRw,
             'facilityRts' => $facilityRt
         ]);
     }
+    
 
     public function show(Request $request)
     {
@@ -53,7 +45,8 @@ class FacilityController extends Controller
 
             // Pastikan data ditemukan sebelum memodifikasi
             if ($facility) {
-                $facility->link_maps = $this->convertToEmbedUrl($facility->link_maps);
+                $redirectedUrl = $this->getRedirectedUrl($facility->link_maps);
+                $facility->link_maps = $this->convertToEmbedUrl($redirectedUrl);
             }
         } else {
             // Ambil data FacilityRt berdasarkan ID
@@ -61,11 +54,10 @@ class FacilityController extends Controller
 
             // Pastikan data ditemukan sebelum memodifikasi
             if ($facility) {
-                $facility->link_maps = $this->convertToEmbedUrl($facility->link_maps);
+                $redirectedUrl = $this->getRedirectedUrl($facility->link_maps);
+                $facility->link_maps = $this->convertToEmbedUrl($redirectedUrl);
             }
         }
-
-        // dd($facility);
 
         return view('pages.facility.show', [
             'type' => $type,
@@ -73,23 +65,34 @@ class FacilityController extends Controller
         ]);
     }
 
+    public function getRedirectedUrl($url)
+    {
+        // Mengirim permintaan GET ke URL untuk mendapatkan URL redirect
+        try {
+            $response = Http::withOptions(['allow_redirects' => ['max' => 10]])->get($url);
 
-    function convertToEmbedUrl($shortUrl)
-{
-    // Jika URL adalah short URL, ekspansi ke URL panjang
-    if (strpos($shortUrl, 'goo.gl') !== false || strpos($shortUrl, 'maps.app.goo.gl') !== false) {
-        $longUrl = $this->expandShortUrl($shortUrl);
-    } else {
-        $longUrl = $shortUrl;
+            // Mendapatkan URL akhir setelah redirect
+        $finalUrl = $response->effectiveUri();
+        } catch (\Exception $e) {
+            return "Error: " . $e->getMessage();
+        }
+        
+
+        
+
+        // dd($finalUrl->getPath());
+
+        return $finalUrl->getPath();
     }
 
-    dd($longUrl);
-
-    // Debug URL panjang setelah ekspansi
+    function convertToEmbedUrl($longUrl)
+{
+    // Debug URL panjang setelah redirect
     error_log("Expanded URL: " . $longUrl);
 
     // Ekstrak koordinat dari URL panjang menggunakan regex
-    preg_match('/@(-?\d+\.\d+),(-?\d+\.\d+)/', $longUrl, $matches);
+    // Tangkap pola '3d-latitude' dan '4d-longitude' dari URL
+    preg_match('/3d(-?\d+\.\d+).*4d(-?\d+\.\d+)/', $longUrl, $matches);
 
     // Jika koordinat ditemukan
     if (isset($matches[1]) && isset($matches[2])) {
@@ -105,22 +108,6 @@ class FacilityController extends Controller
 }
 
 
-     function expandShortUrl($shortUrl)
-{
-    $ch = curl_init($shortUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Ikuti redirect
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    
-    // Eksekusi cURL dan dapatkan URL yang sudah diperluas
-    curl_exec($ch); 
-    $expandedUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-    curl_close($ch);
-
-    dd($expandedUrl);
-
-    return $expandedUrl;
-}
 
 
 

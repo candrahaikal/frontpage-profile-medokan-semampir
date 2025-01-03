@@ -47,7 +47,7 @@
         </button>
     </div>
 
-    <div id="carouselHeroSmall" class="carousel slide d-block d-lg-none px-3" style="padding-top: 80px">
+    {{-- <div id="carouselHeroSmall" class="carousel slide d-block d-lg-none px-3" style="padding-top: 80px">
         <div class="carousel-indicators">
             @foreach ($events as $event)
                 @if ($event->image)
@@ -84,7 +84,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> --}}
 </section>
 
 
@@ -357,7 +357,7 @@
                     <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="image-wrapper">
                             <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-                                <img src="assets/images/about-5.webp" alt="Business Meeting"
+                                <img src="{{ asset('assets/images/maps.jpg')}}" alt="Maps Medokan Semampir"
                                     class="img-fluid main-image rounded-4">
                                 {{-- <img src="assets/images/about-2.webp" alt="Team Discussion"
                                     class="img-fluid small-image rounded-4"> --}}

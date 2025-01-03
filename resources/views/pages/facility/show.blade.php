@@ -55,8 +55,13 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="my-5"><img src="{{ asset('assets/images/services.jpg') }}" alt=""
-                            class="img-thumbnail mx-auto d-block"></div>
+                    <div class="my-5">
+                        <img 
+                            src="{{ $facility->image ? env('APP_CMS_URL') . $facility->image : 'https://placehold.co/800x500?text=Tidak+ada+gambar&font=roboto' }}" 
+                            alt="{{ $facility->name ?? 'Gambar tidak tersedia' }}" 
+                            class="img-thumbnail mx-auto d-block">
+                    </div>
+                    
                     <hr>
                     <div class="mt-4">
                         <div class="text-muted font-size-14">

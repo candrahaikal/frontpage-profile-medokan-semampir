@@ -14,6 +14,7 @@ class StaffRw extends Model
     protected $fillable = [
         'rw_id',
         'name',
+        'image',
         'status',
         'staff_category_id'
     ];
